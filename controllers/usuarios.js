@@ -68,13 +68,11 @@ const usuarioPost = async( req, res = response ) => {
 const usuarioDelete = async (req, res= response) => {
 
     const { id } = req.params;
-
-    //Fisicamente lo borramos , pero no es recomendable borrarlo del todo sino cambiarlo a estado inactivo
-    // const usuario = await Usuario.findByIdAndDelete( id ); 
-
+ 
     const usuario = await Usuario.findByIdAndUpdate( id , { estado: false});
+    
 
-    res.json(usuario);
+    res.json({usuario});
 };
 
 const usuarioPatch =  (req, res= response) => {
